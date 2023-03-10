@@ -1,0 +1,133 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* 
+body {
+    background-image: url("/bg.svg");
+
+} */
+
+#dayOfTheWeek {
+    color: #009ACE;
+    position: absolute;
+    transform: rotate(-30deg);
+    animation-name: pulse;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    opacity: .7;
+
+}
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.6);
+
+
+    }
+
+    50% {
+        transform: scale(0.8);
+
+    }
+
+    100% {
+        transform: scale(0.6);
+
+
+    }
+}
+
+#polyg {
+    position: absolute;
+    height: 50em;
+    opacity: 0;
+    transform: translateY(-5%);
+    transition: ease;
+    animation-name: reveal-polyg;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes reveal-polyg {
+
+
+
+
+    50% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+
+}
+
+
+#A {
+    transition: all 1s ease;
+    animation-name: reveal-A;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+
+
+}
+
+@keyframes reveal-A {
+    0% {
+        transform: translateX(0%);
+    }
+
+    5%,
+    50% {
+        transform: translatex(28%);
+    }
+
+
+
+}
+
+
+#brackets {
+    transition: all 1s ease-in-out;
+    animation-name: reveal-brackets;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+#stro {
+    transition: all 1s ease-in-out;
+    animation-name: reveal-brackets;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes reveal-brackets {
+
+    5%,
+    50% {
+        transform: translatex(-40%);
+        opacity: 0;
+    }
+
+}
+
+#brackets1 {
+    transition: all 1s ease-in-out;
+    animation-name: reveal-brackets1;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes reveal-brackets1 {
+
+    5%,
+    50% {
+        transform: translatex(10%);
+        opacity: 0;
+    }
+
+}

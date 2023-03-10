@@ -42,6 +42,7 @@ body {
 #polyg {
     position: absolute;
     height: 50em;
+
     opacity: 0;
     transform: translateY(-5%);
     transition: ease;

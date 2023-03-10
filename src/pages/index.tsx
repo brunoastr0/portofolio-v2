@@ -16,11 +16,12 @@ const Home: NextPage = () => {
 
       <svg
         id="polyg"
-        width="350"
-        height="350"
+        width="200"
+        height="200"
         viewBox="0 0 118 129"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className="left-[24%] top-[10%] md:top-auto md:left-auto absolute md:invisible"
       >
         <path
           d="M59 126.388L2.5 95.3893V33.6107L59 2.61227L115.5 33.6107V95.3893L59 126.388ZM58.612 126.601C58.6128 126.6 58.6135 126.6 58.6143 126.599L58.6133 126.6L58.612 126.601ZM59.3857 126.599C59.3864 126.6 59.3872 126.6 59.388 126.601L59.3866 126.6L59.3857 126.599Z"
@@ -29,16 +30,16 @@ const Home: NextPage = () => {
         />
       </svg>
 
-      <div className="flex flex-col w-[500px] md:w-[1200px] md:m-20">
+      <div className="flex flex-col w-[400px] md:w-[1200px] md:m-20 ">
         <svg
           id="astro"
           viewBox="0 0 1941 382"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className="absolute left-2 md:top-1/3"
         >
           <g id="brackets">
             <path
-              id="brackets1"
               d="M1532.17 381.956H1561.83L1686.15 79.1556H1656.49L1532.17 381.956Z"
               fill="#FFD700"
             />
@@ -89,7 +90,7 @@ const Home: NextPage = () => {
         </svg>
       </div>
 
-      <div className="text-gray-400 text-center text-3xl">
+      <div className="text-gray-400 text-center justify-center text-3xl absolute bottom-10">
         <p>Building</p>
         <p>Almost Done...</p>
       </div>

@@ -39,33 +39,7 @@ body {
     }
 }
 
-#polyg {
-    position: absolute;
-    height: 50em;
 
-    opacity: 0;
-    transform: translateY(-5%);
-    transition: ease;
-    animation-name: reveal-polyg;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-}
-
-@keyframes reveal-polyg {
-
-
-
-
-    50% {
-        opacity: 1;
-    }
-
-    60% {
-        opacity: 0;
-    }
-
-
-}
 
 
 #A {

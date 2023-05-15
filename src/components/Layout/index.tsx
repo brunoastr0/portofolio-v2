@@ -3,6 +3,7 @@ import Image from "next/image";
 
 // import { Poppins } from "@next/font/google";
 import { ReactNode } from "react";
+import AppBar from "../AppBar";
 
 // const poppins = Poppins({ weight: "300" });
 interface LayoutProps {
@@ -16,8 +17,11 @@ export function Layout({ children }: LayoutProps): JSX.Element {
         <title>Bruno Angelo</title>
       </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-8 md:px-20 text-cente">
+      <main className="flex w-full flex-1 flex-col items-center justify-center text-center">
         {children}
+        <div className="absolute bottom-0 w-full">
+          <AppBar />
+        </div>
       </main>
     </div>
   );

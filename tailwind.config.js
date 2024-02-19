@@ -7,8 +7,11 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        app: "url('/bg.svg')",
+        app: "url('/desktop.svg')",
       },
+      boxShadow: {
+        '3xl': '0 1px 50px -15px rgba(255, 255, 255, 1)',
+      }
     },
 
   },

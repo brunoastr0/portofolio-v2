@@ -7,102 +7,62 @@ body {
 
 } */
 
-#dayOfTheWeek {
+span#dayOfTheWeek {
     color: #009ACE;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
     position: absolute;
-    transform: rotate(-30deg);
-    animation-name: pulse;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    opacity: .7;
+    display: inline-flex;
+    border-right: .15em solid white;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+
+
+}
+
+.active>span:nth-child(1) {
+    background-color: #FFD700;
+    width: 4rem;
+}
+
+.active>span:nth-child(2) {
+    color: #FFD700;
 
 }
 
 
-@keyframes pulse {
-    0% {
-        transform: scale(0.6);
+/*Animation*/
 
-
+/* Keyframes for the typing animation */
+@keyframes typing {
+    from {
+        width: 0;
     }
 
+    /* Text starts off with zero width */
+    to {
+        width: 100%;
+    }
+
+    /* Text expands to full width */
+}
+
+/* Keyframes for the cursor blinking effect */
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    /* Cursor appears invisible */
     50% {
-        transform: scale(0.8);
-
+        border-color: white;
     }
 
-    100% {
-        transform: scale(0.6);
-
-
-    }
-}
-
-
-
-
-#A {
-    transition: all 1s ease;
-    animation-name: reveal-A;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-
-
-}
-
-@keyframes reveal-A {
-    0% {
-        transform: translateX(0%);
-    }
-
-    5%,
-    50% {
-        transform: translatex(28%);
-    }
-
-
-
-}
-
-
-#brackets {
-    transition: all 1s ease-in-out;
-    animation-name: reveal-brackets;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-}
-
-#stro {
-    transition: all 1s ease-in-out;
-    animation-name: reveal-brackets;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-}
-
-@keyframes reveal-brackets {
-
-    5%,
-    50% {
-        transform: translatex(-40%);
-        opacity: 0;
-    }
-
-}
-
-#brackets1 {
-    transition: all 1s ease-in-out;
-    animation-name: reveal-brackets1;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-}
-
-@keyframes reveal-brackets1 {
-
-    5%,
-    50% {
-        transform: translatex(10%);
-        opacity: 0;
-    }
-
+    /* Cursor blinks with white color */
 }

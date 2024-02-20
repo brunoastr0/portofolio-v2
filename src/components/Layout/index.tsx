@@ -61,13 +61,13 @@ export function Layout({ children }: LayoutProps): JSX.Element {
             </div>
 
             <ul
-              className="ml-1 mt-8 flex items-center"
+              className="ml-0 mt-8 flex items-center"
               aria-label="Social media"
             >
               <SocialsLinks />
             </ul>
           </header>
-          <main id="content" className="bg-red-200 pt-24 lg:w-1/2 lg:py-24 ">
+          <main id="content" className=" pt-24 lg:w-1/2 lg:py-24 ">
             {children}
           </main>
         </div>

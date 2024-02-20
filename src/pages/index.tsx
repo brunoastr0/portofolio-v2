@@ -47,6 +47,7 @@ const Home: NextPage = () => {
           </p>
         </div>
       </section>
+
       <section
         id="project"
         className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
@@ -80,6 +81,13 @@ const Home: NextPage = () => {
             for a reliable and experienced software development partner, look no
             further than Astro.
           </p>
+        </div>
+        <div>
+          <ul className="group/list">
+            <li className="mb-12">
+              <div className="group relative grid gap-4 pb-1 transition-all"></div>
+            </li>
+          </ul>
         </div>
       </section>
       <section

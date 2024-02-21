@@ -12,9 +12,9 @@ export function Tab(): JSX.Element {
 
   useEffect(() => {
     const handleScroll = () => {
-      const aboutElement = document.querySelector("#about");
-      const projectsElement = document.querySelector("#project");
-      const experienceElement = document.querySelector("#experience");
+      const aboutElement: any = document.querySelector("#about");
+      const projectsElement: any = document.querySelector("#project");
+      const experienceElement: any = document.querySelector("#experience");
 
       if (aboutElement && projectsElement && experienceElement) {
         const aboutOffset = aboutElement.offsetTop;

@@ -18,8 +18,8 @@ const Home: NextPage = () => {
         aria-label="About me"
       >
         <div
-          className="sticky top-0 z-20 -mx-6 mb-4 w-screen  px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto 
-        lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 text-slate-100"
+          className="sticky top-0 z-20 -mx-6 mb-4 w-screen  px-6 py-5 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto 
+        lg:mx-auto lg:w-full justify-end flex lg:px-0 lg:py-0 lg:opacity-0 text-slate-100 font-medium"
         >
           <h2>About</h2>
         </div>
@@ -54,8 +54,8 @@ const Home: NextPage = () => {
         aria-label="Projects"
       >
         <div
-          className="sticky top-0 z-20 -mx-6 mb-4 w-screen  px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto 
-        lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 text-slate-100"
+          className="sticky top-0 z-20 -mx-6 mb-4 w-screen  px-6 py-5 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto 
+        lg:mx-auto lg:w-full justify-end flex lg:px-0 lg:py-0 lg:opacity-0 text-slate-100 font-medium"
         >
           <h2>Projects</h2>
         </div>
@@ -69,30 +69,39 @@ const Home: NextPage = () => {
               >
                 <div
                   className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none
-                lg:-inset-x-6  lg:block lg:group-hover:bg-white/[.5] lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)]
+                lg:-inset-x-6  lg:block  lg:group-hover:shadow-[inset_0_0_1px_1px_rgba(255,255,255,0.2)]
                 lg:group-hover:drop-shadow-lg"
-                >
-                  <div className="z-10 sm:order-2 sm:col-span-6">
-                    <h3>
-                      <a
-                        href=""
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        aria-label=""
-                        className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
-                      >
-                        <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:inset-y-4 lg:block"></span>
-                        <span className="">AI Agent learns to drive</span>
-                      </a>
-                    </h3>
-                    <p className="mt-2 text-sm leading-normal">
-                      Video course that teaches how to build a web app with the
-                      Spotify Web API. Topics covered include the principles of
-                      REST APIs, user auth flows, Node, Express, React, Styled
-                      Components, and more.
-                    </p>
-                  </div>
+                ></div>
+                <div className="z-10 sm:order-2 sm:col-span-6">
+                  <h3>
+                    <a
+                      href=""
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      aria-label=""
+                      className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-white focus-visible:text-white group/link text-base"
+                    >
+                      <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                      <span className="">
+                        AI Agent learns to drive
+                        <span className="inline-block"></span>
+                      </span>
+                    </a>
+                  </h3>
+                  <p className="mt-2 text-sm leading-normal">
+                    Video course that teaches how to build a web app with the
+                    Spotify Web API. Topics covered include the principles of
+                    REST APIs, user auth flows, Node, Express, React, Styled
+                    Components, and more.
+                  </p>
                 </div>
+                <Image
+                  src="/neural.png"
+                  width={200}
+                  height={48}
+                  className="rounded border-3 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+                  alt=""
+                />
               </div>
             </li>
             <li className="mb-12">
@@ -102,30 +111,39 @@ const Home: NextPage = () => {
               >
                 <div
                   className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none
-                lg:-inset-x-6  lg:block lg:group-hover:bg-white/[.5] lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)]
+                lg:-inset-x-6  lg:block  lg:group-hover:shadow-[inset_0_0_1px_1px_rgba(255,255,255,0.2)]
                 lg:group-hover:drop-shadow-lg"
-                >
-                  <div className="z-10 sm:order-2 sm:col-span-6">
-                    <h3>
-                      <a
-                        href=""
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        aria-label=""
-                        className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
-                      >
-                        <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:inset-y-4 lg:block"></span>
-                        <span className="">AI Agent learns to drive</span>
-                      </a>
-                    </h3>
-                    <p className="mt-2 text-sm leading-normal">
-                      Video course that teaches how to build a web app with the
-                      Spotify Web API. Topics covered include the principles of
-                      REST APIs, user auth flows, Node, Express, React, Styled
-                      Components, and more.
-                    </p>
-                  </div>
+                ></div>
+                <div className="z-10 sm:order-2 sm:col-span-6">
+                  <h3>
+                    <a
+                      href=""
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      aria-label=""
+                      className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-white focus-visible:text-white group/link text-base"
+                    >
+                      <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                      <span className="">
+                        AI Agent learns to drive
+                        <span className="inline-block"></span>
+                      </span>
+                    </a>
+                  </h3>
+                  <p className="mt-2 text-sm leading-normal">
+                    Video course that teaches how to build a web app with the
+                    Spotify Web API. Topics covered include the principles of
+                    REST APIs, user auth flows, Node, Express, React, Styled
+                    Components, and more.
+                  </p>
                 </div>
+                <Image
+                  src="/neural.png"
+                  width={200}
+                  height={48}
+                  className="rounded border-3 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+                  alt=""
+                />
               </div>
             </li>
             <li className="mb-12">
@@ -135,30 +153,40 @@ const Home: NextPage = () => {
               >
                 <div
                   className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none
-                lg:-inset-x-6  lg:block lg:group-hover:bg-white/[.5] lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)]
+                lg:-inset-x-6  lg:block  lg:group-hover:shadow-[inset_0_0_1px_1px_rgba(255,255,255,0.2)]
+                
                 lg:group-hover:drop-shadow-lg"
-                >
-                  <div className="z-10 sm:order-2 sm:col-span-6">
-                    <h3>
-                      <a
-                        href=""
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        aria-label=""
-                        className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
-                      >
-                        <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:inset-y-4 lg:block"></span>
-                        <span className="">AI Agent learns to drive</span>
-                      </a>
-                    </h3>
-                    <p className="mt-2 text-sm leading-normal">
-                      Video course that teaches how to build a web app with the
-                      Spotify Web API. Topics covered include the principles of
-                      REST APIs, user auth flows, Node, Express, React, Styled
-                      Components, and more.
-                    </p>
-                  </div>
+                ></div>
+                <div className="z-10 sm:order-2 sm:col-span-6">
+                  <h3>
+                    <a
+                      href=""
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      aria-label=""
+                      className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-white focus-visible:text-white group/link text-base"
+                    >
+                      <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
+                      <span className="">
+                        AI Agent learns to drive
+                        <span className="inline-block"></span>
+                      </span>
+                    </a>
+                  </h3>
+                  <p className="mt-2 text-sm leading-normal">
+                    Video course that teaches how to build a web app with the
+                    Spotify Web API. Topics covered include the principles of
+                    REST APIs, user auth flows, Node, Express, React, Styled
+                    Components, and more.
+                  </p>
                 </div>
+                <Image
+                  src="/neural.png"
+                  width={200}
+                  height={48}
+                  className="rounded border-3 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
+                  alt=""
+                />
               </div>
             </li>
           </ul>
@@ -170,8 +198,8 @@ const Home: NextPage = () => {
         aria-label="About me"
       >
         <div
-          className="sticky top-0 z-20 -mx-6 mb-4 w-screen  px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto 
-        lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0 text-slate-100"
+          className="sticky top-0 z-20 -mx-6 mb-4 w-screen  px-6 py-5 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto 
+        lg:mx-auto lg:w-full justify-end flex lg:px-0 lg:py-0 lg:opacity-0 text-slate-100 font-medium"
         >
           <h2>Experience</h2>
         </div>

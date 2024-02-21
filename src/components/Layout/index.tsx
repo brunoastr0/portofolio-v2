@@ -7,6 +7,7 @@ import RadialPointer from "../RadialPointer";
 import { Tab } from "../Tab";
 import { SocialsLinks } from "../SocialsLinks";
 import { DayOfTheWeek } from "../DayOfTheWeek";
+import Logo from "../Logo";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -30,13 +31,7 @@ export function Layout({ children }: LayoutProps): JSX.Element {
       <div
         className={`mx-auto min-h-screen  max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 `}
       >
-        <Image
-          src={"/astro_white.png"}
-          width={30}
-          height={30}
-          alt={"astro logo white"}
-          className="absolute left-0 top-0 m-7 "
-        />
+        <Logo />
         <div className="lg:flex lg:justify-between lg:gap-4 ">
           <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
             <div className="flex flex-col md:flex-row justify-start md:w-full items-center   ">

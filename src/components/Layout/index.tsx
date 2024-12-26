@@ -3,11 +3,15 @@ import Image from "next/image";
 
 import { Poppins } from "next/font/google";
 import { ReactNode } from "react";
+<<<<<<< HEAD
 import RadialPointer from "../RadialPointer";
 import { Tab } from "../Tab";
 import { SocialsLinks } from "../SocialsLinks";
 import { DayOfTheWeek } from "../DayOfTheWeek";
 import Logo from "../Logo";
+=======
+import AppBar from "../AppBar";
+>>>>>>> c1368c0 (commiting....)
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -28,6 +32,7 @@ export function Layout({ children }: LayoutProps): JSX.Element {
       <RadialPointer />
       <DayOfTheWeek />
 
+<<<<<<< HEAD
       <div
         className={`mx-auto min-h-screen  max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 `}
       >
@@ -67,6 +72,14 @@ export function Layout({ children }: LayoutProps): JSX.Element {
           </main>
         </div>
       </div>
+=======
+      <main className="flex w-full flex-1 flex-col items-center justify-center text-center">
+        {children}
+        <div className="absolute bottom-0 w-full">
+          <AppBar />
+        </div>
+      </main>
+>>>>>>> c1368c0 (commiting....)
     </div>
   );
 }

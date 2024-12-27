@@ -26,14 +26,19 @@ span#dayOfTheWeek {
 
 .active>span:nth-child(1) {
     background-color: #FFD700;
+    /* Gold */
     width: 4rem;
+    /* Adjusts the indicator width */
+    transition: all 0.3s ease;
+    /* Smooth transition for hover effects */
 }
 
 .active>span:nth-child(2) {
     color: #FFD700;
-
+    /* Matches the active indicator color */
+    transition: color 0.3s ease;
+    /* Smooth transition for text color */
 }
-
 
 
 

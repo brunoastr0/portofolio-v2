@@ -8,7 +8,6 @@ import { Tab } from "../Tab";
 import { SocialsLinks } from "../SocialsLinks";
 import { DayOfTheWeek } from "../DayOfTheWeek";
 import Logo from "../Logo";
-import AppBar from "../AppBar";
 
 const poppins = Poppins({
   subsets: ["latin"],

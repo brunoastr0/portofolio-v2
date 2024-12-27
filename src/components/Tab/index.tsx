@@ -1,43 +1,53 @@
-import Head from "next/head";
-import Image from "next/image";
-
-import { ReactNode, useState, useEffect } from "react";
-
-interface TabProps {
-  children: ReactNode;
-}
+import { useEffect, useState } from "react";
 
 export function Tab(): JSX.Element {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
-      const aboutElement: any = document.querySelector("#about");
-      const projectsElement: any = document.querySelector("#project");
-      const experienceElement: any = document.querySelector("#experience");
+      const sections = [
+        document.querySelector("#about"),
+        document.querySelector("#project"),
+        document.querySelector("#experience"),
+        document.querySelector("#education"),
+      ];
 
-      if (aboutElement && projectsElement && experienceElement) {
-        const aboutOffset = aboutElement.offsetTop;
-        const projectsOffset = projectsElement.offsetTop;
-        const experienceOffset = experienceElement.offsetTop;
+      const offsets = sections.map((section) =>
+        section
+          ? section.getBoundingClientRect().top + window.scrollY
+          : Number.MAX_SAFE_INTEGER
+      );
 
-        const scrollY = window.scrollY;
-        if (scrollY <= aboutOffset && scrollY < projectsOffset) {
-          setActiveSection("about");
-        } else if (scrollY <= projectsOffset && scrollY < experienceOffset) {
-          setActiveSection("project");
-        } else {
-          setActiveSection("experience");
-        }
+      const scrollY = window.scrollY;
+
+      if (scrollY <= offsets[0] && scrollY < offsets[1]) {
+        setActiveSection("about");
+      } else if (scrollY <= offsets[1] && scrollY < offsets[2]) {
+        setActiveSection("project");
+      } else if (scrollY <= offsets[2] && scrollY < offsets[3]) {
+        setActiveSection("experience");
+      } else if (scrollY <= offsets[3]) {
+        setActiveSection("education");
       }
     };
 
+    // Attach scroll event listener
     window.addEventListener("scroll", handleScroll);
 
+    // Cleanup on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // Add a click event listener to immediately update the active section
+  const handleClick = (section: string) => {
+    setActiveSection(section);
+
+    // Scroll to the section (optional for smooth scrolling)
+    const target = document.querySelector(`#${section}`);
+    target?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <nav className="nav hidden lg:block" aria-label="In-page jump links">
@@ -48,11 +58,10 @@ export function Tab(): JSX.Element {
               activeSection === "about" ? "active" : ""
             }`}
             href="#about"
+            onClick={() => handleClick("about")}
           >
-            <span className="nav-indicator mr-4 h-px w-8 transition-all bg-white/[.5] group-hover:bg-[slate-200] group-hover:w-16 group-focus-visible:w-1/2 group-focus-visible:bg-[slate-200] motion-reduce:transition-none"></span>
-            <span className="nav-text text-xs font-bold uppercase tracking-widest text-white/[.5] group-hover:text-[slate-200] group-focus-visible:text-[slate-200]">
-              About
-            </span>
+            <span className="nav-indicator mr-4 h-px w-8 transition-all bg-white/[.5] group-hover:bg-[slate-200]"></span>
+            <span className="nav-text">About</span>
           </a>
         </li>
         <li>
@@ -61,11 +70,10 @@ export function Tab(): JSX.Element {
               activeSection === "project" ? "active" : ""
             }`}
             href="#project"
+            onClick={() => handleClick("project")}
           >
-            <span className="nav-indicator mr-4 h-px w-8 transition-all bg-white/[.5] group-hover:bg-[slate-200] group-hover:w-16 group-focus-visible:w-1/2 group-focus-visible:bg-[slate-200] motion-reduce:transition-none"></span>
-            <span className="nav-text text-xs font-bold uppercase tracking-widest text-white/[.5]  group-hover:text-[slate-200] group-focus-visible:text-[slate-200]">
-              Projects
-            </span>
+            <span className="nav-indicator mr-4 h-px w-8 transition-all bg-white/[.5] group-hover:bg-[slate-200]"></span>
+            <span className="nav-text">Projects</span>
           </a>
         </li>
         <li>
@@ -74,11 +82,22 @@ export function Tab(): JSX.Element {
               activeSection === "experience" ? "active" : ""
             }`}
             href="#experience"
+            onClick={() => handleClick("experience")}
           >
-            <span className="nav-indicator mr-4 h-px w-8 transition-all bg-white/[.5] group-hover:bg-[slate-200] group-hover:w-16 group-focus-visible:w-1/2 group-focus-visible:bg-[slate-200] motion-reduce:transition-none"></span>
-            <span className="nav-text text-xs font-bold uppercase tracking-widest text-white/[.5] group-focus-visible:w-1/2 group-hover:text-[slate-200] group-focus-visible:text-[slate-200]">
-              Experience
-            </span>
+            <span className="nav-indicator mr-4 h-px w-8 transition-all bg-white/[.5] group-hover:bg-[slate-200]"></span>
+            <span className="nav-text">Experience</span>
+          </a>
+        </li>
+        <li>
+          <a
+            className={`group flex items-center py-3 ${
+              activeSection === "education" ? "active" : ""
+            }`}
+            href="#education"
+            onClick={() => handleClick("education")}
+          >
+            <span className="nav-indicator mr-4 h-px w-8 transition-all bg-white/[.5] group-hover:bg-[slate-200]"></span>
+            <span className="nav-text">Education</span>
           </a>
         </li>
       </ul>

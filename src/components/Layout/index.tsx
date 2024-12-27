@@ -3,15 +3,12 @@ import Image from "next/image";
 
 import { Poppins } from "next/font/google";
 import { ReactNode } from "react";
-<<<<<<< HEAD
 import RadialPointer from "../RadialPointer";
 import { Tab } from "../Tab";
 import { SocialsLinks } from "../SocialsLinks";
 import { DayOfTheWeek } from "../DayOfTheWeek";
 import Logo from "../Logo";
-=======
 import AppBar from "../AppBar";
->>>>>>> c1368c0 (commiting....)
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,7 +29,6 @@ export function Layout({ children }: LayoutProps): JSX.Element {
       <RadialPointer />
       <DayOfTheWeek />
 
-<<<<<<< HEAD
       <div
         className={`mx-auto min-h-screen  max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 `}
       >
@@ -59,6 +55,16 @@ export function Layout({ children }: LayoutProps): JSX.Element {
             <div className="">
               <Tab />
             </div>
+            <div className="md:block flex justify-center m-2">
+              <a
+                className="bg-yellow-500 hover:bg-yellow-400 w-fit p-4 rounded text-[#252525] font-bold "
+                href="/pdf/CV_BrunoAngelo.pdf"
+                target={"_blank"}
+                download={"bruno_angelo_cv"}
+              >
+                Curicullum Vitae
+              </a>
+            </div>
 
             <ul
               className="ml-0 mt-8 flex items-center"
@@ -72,14 +78,6 @@ export function Layout({ children }: LayoutProps): JSX.Element {
           </main>
         </div>
       </div>
-=======
-      <main className="flex w-full flex-1 flex-col items-center justify-center text-center">
-        {children}
-        <div className="absolute bottom-0 w-full">
-          <AppBar />
-        </div>
-      </main>
->>>>>>> c1368c0 (commiting....)
     </div>
   );
 }

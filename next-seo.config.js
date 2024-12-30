@@ -24,7 +24,7 @@ const seoConfig = {
         // Images that will be used when your content is shared.
         images: [
             {
-                url: "https://www.brunoastro.cv/portfolio_cover.png",
+                url: "https://www.brunoastro.cv/portofolio_cover.png",
                 width: 487,
                 height: 183,
                 alt: "Portfolio Cover Image",

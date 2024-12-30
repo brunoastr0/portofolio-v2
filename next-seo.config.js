@@ -25,8 +25,8 @@ const seoConfig = {
         images: [
             {
                 url: "https://www.brunoastro.cv/portfolio_cover.png",
-                width: 1200,
-                height: 630,
+                width: 487,
+                height: 183,
                 alt: "Portfolio Cover Image",
             },
         ],

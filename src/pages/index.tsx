@@ -56,6 +56,7 @@ const experienceData: ExperienceItemProps[] = [
     dateRange: "April 2023 — September 2023",
     description:
       "Worked as a supermarket employee, balancing responsibilities like stock repositioning, managing the charcuterie section, and operating the cash register. This role honed organizational skills, attention to detail, and customer service abilities while contributing to the store's operations.",
+    tags: ["Primavera"],
   },
   {
     title: "Trainee at Akira Corporation",
@@ -88,6 +89,13 @@ const educationData: ExperienceItemProps[] = [
       "Network",
       "Telecommunications",
     ],
+  },
+  {
+    title: "Tech and Management",
+    dateRange: "2017 — 2019",
+    description:
+      "Studying Tech and Management in high school was a transformative experience that provided a strong foundation in technology, organizational principles, and marketing strategies. Through rigorous coursework and practical projects, I honed my problem-solving abilities, enhanced my creativity, and developed essential skills like teamwork, effective communication, and adaptability—preparing me for future academic and professional challenges.",
+    tags: ["MSExcel", "MSWord", "MSPPT"],
   },
 ];
 

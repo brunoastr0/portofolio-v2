@@ -2,7 +2,6 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import { Layout } from "../components/Layout";
-import { SocialsLinks } from "@/components/SocialsLinks";
 import ProjectItem from "@/components/ProjectItem";
 import ExperienceItem, {
   ExperienceItemProps,

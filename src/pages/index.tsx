@@ -8,7 +8,7 @@ import ExperienceItem, {
   ExperienceItemProps,
 } from "@/components/ExpereinceItem";
 import Script from "next/script";
-
+import { NextSeo } from "next-seo";
 interface Project {
   title: string;
   description: string;
@@ -101,79 +101,121 @@ const educationData: ExperienceItemProps[] = [
 
 const Home: NextPage = () => {
   return (
-    <Layout>
-      <Script src="/js/index.js" strategy="lazyOnload" />
+    <>
+      <NextSeo
+        title="Bruno Astro - Software Developer Portfolio"
+        description="Explore my portfolio as a software developer, showcasing projects, experience, and education. Discover more about my journey in web development and passion for technology."
+        canonical="https://www.brunoastro.cv"
+        openGraph={{
+          url: "https://www.brunoastro.cv",
+          title: "Bruno Astro - Software Developer Portfolio",
+          description:
+            "Explore my portfolio as a software developer, showcasing projects, experience, and education. Discover more about my journey in web development and passion for technology.",
+          images: [
+            {
+              url: "/newblue.jpg",
+              width: 1200,
+              height: 630,
+              alt: "NewBlue project thumbnail",
+              type: "image/jpeg",
+            },
+            {
+              url: "/neural.png",
+              width: 1200,
+              height: 630,
+              alt: "AI Agent project thumbnail",
+              type: "image/png",
+            },
+            {
+              url: "/database.png",
+              width: 1200,
+              height: 630,
+              alt: "Multi-Tenant Backend project thumbnail",
+              type: "image/png",
+            },
+          ],
+          siteName: "Bruno Astro Portfolio",
+        }}
+        twitter={{
+          handle: "@brunoastr0",
+          site: "@brunoastr0",
+          cardType: "summary_large_image",
+        }}
+      />
+      <Layout>
+        <Script src="/js/index.js" strategy="lazyOnload" />
 
-      {/* About Section */}
-      <section
-        id="about"
-        className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-        aria-label="About me"
-      >
-        <h2 className="text-lg font-bold mb-4">About Me</h2>
-        <div>
-          <p className="mb-4">
-            Hi, <span className="text-[#FFD700]">I’m Bruno</span>, a software
-            developer currently finishing my engineering degree. I have
-            experience in web development with agile methodologies and have
-            built projects using various technologies. Besides software
-            development, I’m passionate about design and aesthetics.
-          </p>
-          <Image
-            src="/astro_colored_1.svg"
-            width={100}
-            height={100}
-            alt="Astro Logo"
-          />
-          <p className="mt-4">
-            Astro is my personal brand where you can expect top-notch quality,
-            timely delivery, and exceptional customer service.
-          </p>
-        </div>
-      </section>
+        {/* About Section */}
+        <section
+          id="about"
+          className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+          aria-label="About me"
+        >
+          <h2 className="text-lg font-bold mb-4">About Me</h2>
+          <div>
+            <p className="mb-4">
+              Hi, <span className="text-[#FFD700]">I’m Bruno</span>, a software
+              developer currently finishing my engineering degree. I have
+              experience in web development with agile methodologies and have
+              built projects using various technologies. Besides software
+              development, I’m passionate about design and aesthetics.
+            </p>
+            <Image
+              src="/astro_colored_1.svg"
+              width={100}
+              height={100}
+              alt="Astro Logo"
+            />
+            <p className="mt-4">
+              Astro is my personal brand where you can expect top-notch quality,
+              timely delivery, and exceptional customer service.
+            </p>
+          </div>
+        </section>
 
-      {/* Projects Section */}
-      <section
-        id="project"
-        className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-        aria-label="Projects"
-      >
-        <h2 className="text-lg font-bold mb-4">Projects</h2>
-        <ul className="group/list">
-          {projects.map((project, index) => (
-            <ProjectItem key={index} {...project} />
-          ))}
-        </ul>
-      </section>
+        {/* Projects Section */}
+        <section
+          id="project"
+          className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+          aria-label="Projects"
+        >
+          <h2 className="text-lg font-bold mb-4">Projects</h2>
+          <ul className="group/list">
+            {projects.map((project, index) => (
+              <ProjectItem key={index} {...project} />
+            ))}
+          </ul>
+        </section>
 
-      {/* Experience Section */}
-      <section
-        id="experience"
-        className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-        aria-label="Experience"
-      >
-        <h2 className="text-lg font-bold mb-4">Experience</h2>
-        <ul className="group/list">
-          {experienceData.map((item, index) => (
-            <ExperienceItem key={index} {...item} />
-          ))}
-        </ul>
-      </section>
+        {/* Experience Section */}
+        <section
+          id="experience"
+          className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+          aria-label="Experience"
+        >
+          <h2 className="text-lg font-bold mb-4">Experience</h2>
+          <ul className="group/list">
+            {experienceData.map((item, index) => (
+              <ExperienceItem key={index} {...item} />
+            ))}
+          </ul>
+        </section>
 
-      {/* Education Section */}
-      <section
-        id="education"
-        className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-        aria-label="Education"
-      >
-        <h2 className="text-lg font-bold mb-4">Education</h2>
-        <ul className="group/list">
-          {educationData.map((item, index) => (
-            <ExperienceItem key={index} {...item} />
-          ))}
-        </ul>
-      </section>
-    </Layout>
+        {/* Education Section */}
+        <section
+          id="education"
+          className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+          aria-label="Education"
+        >
+          <h2 className="text-lg font-bold mb-4">Education</h2>
+          <ul className="group/list">
+            {educationData.map((item, index) => (
+              <ExperienceItem key={index} {...item} />
+            ))}
+          </ul>
+        </section>
+      </Layout>
+    </>
   );
 };
 

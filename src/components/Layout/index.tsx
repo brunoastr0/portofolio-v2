@@ -23,6 +23,7 @@ export function Layout({ children }: LayoutProps): JSX.Element {
   return (
     <div className={`relative ${poppins.variable}`}>
       <Head>
+      <link rel="icon" href="/favicon.ico" sizes="any" />
         <title>Bruno Angelo</title>
       </Head>
       <RadialPointer />

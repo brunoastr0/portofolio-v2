@@ -151,7 +151,12 @@ const Home: NextPage = () => {
           className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
           aria-label="About me"
         >
-          <h2 className="text-lg font-bold mb-4">About Me</h2>
+          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen  px-6 py-5 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto  lg:mx-auto lg:w-full justify-end flex lg:px-0 lg:py-0 lg:opacity-0 text-slate-100 font-medium">
+            <h2>About</h2>
+          </div>
+          <h2 className="hidden lg:block relative text-lg font-bold mb-4">
+            About Me
+          </h2>
           <div>
             <p className="mb-4">
               Hi, <span className="text-[#FFD700]">I’m Bruno</span>, a software
@@ -179,7 +184,12 @@ const Home: NextPage = () => {
           className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
           aria-label="Projects"
         >
-          <h2 className="text-lg font-bold mb-4">Projects</h2>
+          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen  px-6 py-5 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto  lg:mx-auto lg:w-full justify-end flex lg:px-0 lg:py-0 lg:opacity-0 text-slate-100 font-medium">
+            <h2>Projects</h2>
+          </div>
+          <h2 className="hidden lg:block relative text-lg font-bold mb-4">
+            Projects
+          </h2>
           <ul className="group/list">
             {projects.map((project, index) => (
               <ProjectItem key={index} {...project} />
@@ -193,7 +203,12 @@ const Home: NextPage = () => {
           className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
           aria-label="Experience"
         >
-          <h2 className="text-lg font-bold mb-4">Experience</h2>
+          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen  px-6 py-5 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto  lg:mx-auto lg:w-full justify-end flex lg:px-0 lg:py-0 lg:opacity-0 text-slate-100 font-medium">
+            <h2>Experiences</h2>
+          </div>
+          <h2 className="hidden lg:block relative text-lg font-bold mb-4">
+            Experiences
+          </h2>
           <ul className="group/list">
             {experienceData.map((item, index) => (
               <ExperienceItem key={index} {...item} />
@@ -207,7 +222,12 @@ const Home: NextPage = () => {
           className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
           aria-label="Education"
         >
-          <h2 className="text-lg font-bold mb-4">Education</h2>
+          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen  px-6 py-5 backdrop-blur-lg md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto  lg:mx-auto lg:w-full justify-end flex lg:px-0 lg:py-0 lg:opacity-0 text-slate-100 font-medium">
+            <h2>Education</h2>
+          </div>
+          <h2 className="hidden lg:block relative text-lg font-bold mb-4">
+            Education
+          </h2>
           <ul className="group/list">
             {educationData.map((item, index) => (
               <ExperienceItem key={index} {...item} />

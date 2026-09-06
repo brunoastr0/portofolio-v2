@@ -17,6 +17,8 @@ export interface PostMeta {
   date: string;
   description: string;
   tags: string[];
+  image: string;
+  imageAlt: string;
 }
 
 export interface Post extends PostMeta {
@@ -40,6 +42,8 @@ export function getAllPosts(language: PostLanguage = "en"): PostMeta[] {
         date: data.date ?? "",
         description: data.description ?? "",
         tags: data.tags ?? [],
+        image: data.image ?? `/social/${slug}-${language}.png`,
+        imageAlt: data.imageAlt ?? data.title ?? slug,
       };
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -65,6 +69,8 @@ export async function getPost(slug: string, language: PostLanguage = "en"): Prom
     date: data.date ?? "",
     description: data.description ?? "",
     tags: data.tags ?? [],
+    image: data.image ?? `/social/${slug}-${language}.png`,
+    imageAlt: data.imageAlt ?? data.title ?? slug,
     contentHtml,
   };
 }

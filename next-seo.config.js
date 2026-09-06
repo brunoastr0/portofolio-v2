@@ -1,47 +1,40 @@
+/** @type {import("next-seo").DefaultSeoProps} */
 const seoConfig = {
-    // The default title for your site.
     title: "Bruno Ângelo",
-    // A template for the title, allowing you to add a suffix or prefix.
     titleTemplate: "%s | Bruno Ângelo",
-    // The default title for pages that don't specify their own title.
-    defaultTitle: "Bruno Ângelo",
-    // The default description for your site.
-    description: "This is the default description of my website.",
-    // Open Graph settings for better social media integration.
+    defaultTitle: "Bruno Ângelo — Computer Engineer in Cabo Verde",
+    description: "Computer engineer in Cabo Verde building backend systems, full-stack web products, and reliable network infrastructure.",
+    canonical: "https://www.brunoastro.cv/",
+    robotsProps: {
+        maxImagePreview: "large",
+    },
     openGraph: {
-        // The type of content (e.g., website, article).
         type: "website",
-        // The locale of your content.
-        locale: "pt_CV",
-        // The canonical URL of your site.
+        locale: "en_US",
         url: "https://www.brunoastro.cv/",
-        // The name of your site.
-        site_name: "Bruno Ângelo",
-        // The default title for Open Graph.
-        title: "Bruno Ângelo",
-        // The default description for Open Graph.
-        description: "Welcome to the official website of Bruno Ângelo, where innovation meets creativity. Explore a world of ideas, projects, and insights that showcase expertise in technology, management, and beyond. Designed to inspire and inform, this platform highlights my journey, achievements, and commitment to delivering impactful solutions.",
-        // Images that will be used when your content is shared.
+        siteName: "Bruno Ângelo",
+        title: "Bruno Ângelo — Computer Engineer in Cabo Verde",
+        description: "Backend systems, full-stack web products, network engineering, and production operations.",
         images: [
             {
-                url: "https://www.brunoastro.cv/portofolio_cover.png",
-                width: 487,
-                height: 183,
-                alt: "Portfolio Cover Image",
+                url: "https://www.brunoastro.cv/social/home-en.png",
+                width: 1200,
+                height: 630,
+                alt: "Bruno Ângelo — Computer Engineer",
+                type: "image/png",
             },
         ],
     },
-    // Twitter settings for Twitter cards.
     twitter: {
-        // The card type, which determines how your content is displayed.
         cardType: "summary_large_image",
-        // The Twitter handle of your site.
         site: "@brunoastr0",
-        // The Twitter handle of the content creator.
-        creator: "@brunoastr0",
+        handle: "@brunoastr0",
     },
-    // Additional meta tags to include in the head of your document.
     additionalMetaTags: [
+        {
+            name: "author",
+            content: "Bruno Ângelo",
+        },
         {
             name: "theme-color",
             content: "#FAFAF9",

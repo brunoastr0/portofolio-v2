@@ -5,15 +5,26 @@ import PostItem from "@/components/PostItem";
 import { Reveal } from "@/components/Reveal";
 import { getAllPosts, PostMeta } from "@/lib/posts";
 import { useLanguage } from "@/components/LanguageProvider";
+import {
+  absoluteUrl,
+  blogUrl,
+  SITE_NAME,
+  SOCIAL_IMAGE_HEIGHT,
+  SOCIAL_IMAGE_WIDTH,
+} from "@/lib/seo";
+import type { Language } from "@/components/LanguageProvider";
 
-interface BlogPageProps {
+export interface BlogPageProps {
   posts: PostMeta[];
   postsPt: PostMeta[];
+  language: Language;
 }
 
-const BlogPage: NextPage<BlogPageProps> = ({ posts, postsPt }) => {
+export const BlogPage: NextPage<BlogPageProps> = ({ posts, postsPt }) => {
   const { language } = useLanguage();
   const displayedPosts = language === "pt" ? postsPt : posts;
+  const currentUrl = blogUrl(language);
+  const socialImage = absoluteUrl(`/social/blog-${language}.png`);
   const copy = language === "pt"
     ? {
         title: "Artigos",
@@ -32,12 +43,39 @@ const BlogPage: NextPage<BlogPageProps> = ({ posts, postsPt }) => {
     <NextSeo
       title={copy.title}
       description={copy.description}
-      canonical="https://www.brunoastro.cv/blog"
+      canonical={currentUrl}
+      languageAlternates={[
+        { hrefLang: "en", href: blogUrl("en") },
+        { hrefLang: "pt-CV", href: blogUrl("pt") },
+        { hrefLang: "x-default", href: blogUrl("en") },
+      ]}
+      robotsProps={{ maxImagePreview: "large" }}
+      additionalMetaTags={[
+        {
+          property: "og:locale:alternate",
+          content: language === "pt" ? "en_US" : "pt_CV",
+        },
+        { name: "twitter:title", content: copy.title },
+        { name: "twitter:description", content: copy.description },
+        { name: "twitter:image", content: socialImage },
+        { name: "twitter:image:alt", content: copy.heading },
+      ]}
       openGraph={{
-        url: "https://www.brunoastro.cv/blog",
+        url: currentUrl,
         title: copy.title,
         description: copy.description,
+        type: "website",
+        locale: language === "pt" ? "pt_CV" : "en_US",
+        siteName: SITE_NAME,
+        images: [{
+          url: socialImage,
+          width: SOCIAL_IMAGE_WIDTH,
+          height: SOCIAL_IMAGE_HEIGHT,
+          alt: copy.heading,
+          type: "image/png",
+        }],
       }}
+      twitter={{ handle: "@brunoastr0", site: "@brunoastr0", cardType: "summary_large_image" }}
     />
     <Layout>
       <section className="py-20 md:py-28" aria-label={copy.title}>
@@ -69,7 +107,7 @@ const BlogPage: NextPage<BlogPageProps> = ({ posts, postsPt }) => {
 };
 
 export const getStaticProps: GetStaticProps<BlogPageProps> = async () => ({
-  props: { posts: getAllPosts(), postsPt: getAllPosts("pt") },
+  props: { posts: getAllPosts(), postsPt: getAllPosts("pt"), language: "en" },
 });
 
 export default BlogPage;

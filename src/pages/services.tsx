@@ -5,6 +5,14 @@ import { Layout } from "@/components/Layout";
 import { useLanguage } from "@/components/LanguageProvider";
 import { Reveal } from "@/components/Reveal";
 import { servicesByLanguage, technologyGroups } from "@/lib/services";
+import {
+  absoluteUrl,
+  postPath,
+  SITE_NAME,
+  SITE_URL,
+  SOCIAL_IMAGE_HEIGHT,
+  SOCIAL_IMAGE_WIDTH,
+} from "@/lib/seo";
 
 const ServicesPage: NextPage = () => {
   const { language } = useLanguage();
@@ -69,7 +77,24 @@ const ServicesPage: NextPage = () => {
       <NextSeo
         title={copy.title}
         description={copy.intro}
-        canonical="https://www.brunoastro.cv/services"
+        canonical={`${SITE_URL}/services`}
+        robotsProps={{ maxImagePreview: "large" }}
+        openGraph={{
+          url: `${SITE_URL}/services`,
+          title: copy.heading,
+          description: copy.intro,
+          locale: language === "pt" ? "pt_CV" : "en_US",
+          type: "website",
+          siteName: SITE_NAME,
+          images: [{
+            url: absoluteUrl(`/social/home-${language}.png`),
+            width: SOCIAL_IMAGE_WIDTH,
+            height: SOCIAL_IMAGE_HEIGHT,
+            alt: `Bruno Ângelo — ${copy.title}`,
+            type: "image/png",
+          }],
+        }}
+        twitter={{ handle: "@brunoastr0", site: "@brunoastr0", cardType: "summary_large_image" }}
       />
       <Layout>
         <section className="py-20 md:py-28" aria-labelledby="services-title">
@@ -117,7 +142,7 @@ const ServicesPage: NextPage = () => {
             <ul className="mt-10 grid gap-6 md:grid-cols-3">
               {copy.caseStudies.map((study) => (
                 <li key={study.href}>
-                  <Link href={study.href} className="group block h-full rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
+                    <Link href={postPath(study.href.replace("/blog/", ""), language)} className="group block h-full rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
                     <h3 className="font-display text-xl font-semibold tracking-tight transition-colors group-hover:text-accent">{study.title}</h3>
                     <p className="mt-3 text-sm text-ink-muted">{study.description}</p>
                     <p className="mt-6 text-sm font-medium text-accent">{copy.readCaseStudy} →</p>

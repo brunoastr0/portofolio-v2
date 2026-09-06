@@ -16,15 +16,26 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en");
+export function LanguageProvider({
+  children,
+  initialLanguage,
+}: {
+  children: ReactNode;
+  initialLanguage?: Language;
+}) {
+  const [language, setLanguage] = useState<Language>(initialLanguage ?? "en");
 
   useEffect(() => {
+    if (initialLanguage) {
+      setLanguage(initialLanguage);
+      return;
+    }
+
     const savedLanguage = window.localStorage.getItem("portfolio-language");
     if (savedLanguage === "en" || savedLanguage === "pt") {
       setLanguage(savedLanguage);
     }
-  }, []);
+  }, [initialLanguage]);
 
   useEffect(() => {
     document.documentElement.lang = language === "pt" ? "pt-CV" : "en";

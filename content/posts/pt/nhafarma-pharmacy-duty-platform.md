@@ -1,6 +1,6 @@
 ---
 title: "Nhafarma: encontrar a farmácia de serviço em Cabo Verde"
-date: "2026-08-20"
+date: "2025-08-20"
 description: "As farmácias alternam os turnos noturnos. A Nhafarma ajuda a encontrar a farmácia de serviço sem esperar por um anúncio na rádio ou procurar nas notícias online."
 tags: ["Caso de estudo", "TypeScript", "Fastify", "Operações", "Prometheus", "Grafana"]
 ---

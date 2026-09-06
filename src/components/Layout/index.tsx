@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Archivo, Space_Grotesk } from "next/font/google";
 import { ReactNode } from "react";
 import { useLanguage } from "../LanguageProvider";
@@ -26,6 +27,7 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps): JSX.Element {
   const { language, setLanguage } = useLanguage();
+  const router = useRouter();
   const copy = language === "pt"
     ? {
         work: "Trabalhos",
@@ -51,8 +53,19 @@ export function Layout({ children }: LayoutProps): JSX.Element {
     { href: "/#work", label: copy.work },
     { href: "/services", label: copy.services },
     { href: "/#about", label: copy.about },
-    { href: "/blog", label: copy.blog },
+    { href: language === "pt" ? "/pt/blog" : "/blog", label: copy.blog },
   ];
+
+  async function changeLanguage() {
+    const nextLanguage = language === "en" ? "pt" : "en";
+    setLanguage(nextLanguage);
+
+    if (router.asPath.startsWith("/blog") && nextLanguage === "pt") {
+      await router.push(`/pt${router.asPath}`);
+    } else if (router.asPath.startsWith("/pt/blog") && nextLanguage === "en") {
+      await router.push(router.asPath.replace(/^\/pt/, ""));
+    }
+  }
 
   return (
     <div className={`${archivo.variable} ${spaceGrotesk.variable} font-sans min-h-screen flex flex-col`}>
@@ -77,7 +90,7 @@ export function Layout({ children }: LayoutProps): JSX.Element {
             </div>
             <button
               type="button"
-              onClick={() => setLanguage(language === "en" ? "pt" : "en")}
+              onClick={changeLanguage}
               aria-label={copy.languageLabel}
               className="rounded-full border border-line bg-surface px-3 py-2 text-xs font-semibold uppercase tracking-wider text-ink-muted transition-colors hover:border-ink hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
             >

@@ -9,6 +9,14 @@ import { useLanguage } from "@/components/LanguageProvider";
 import { Reveal } from "@/components/Reveal";
 import { getAllPosts, PostMeta } from "@/lib/posts";
 import { servicesByLanguage } from "@/lib/services";
+import {
+  absoluteUrl,
+  postPath,
+  SITE_NAME,
+  SITE_URL,
+  SOCIAL_IMAGE_HEIGHT,
+  SOCIAL_IMAGE_WIDTH,
+} from "@/lib/seo";
 
 interface HomeProps {
   posts: PostMeta[];
@@ -94,7 +102,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
       imageSrc: postImages[post.slug] ?? "/database.png",
       imageAlt: translated?.title ?? post.title,
       imageFit: post.slug === "nhafarma-pharmacy-duty-platform" ? "contain" as const : "cover" as const,
-      link: `/blog/${post.slug}`,
+      link: postPath(post.slug, language),
       featured: false,
       meta: post.tags.slice(0, 3),
     };
@@ -102,7 +110,28 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
 
   return (
     <>
-      <NextSeo title={copy.title} description={copy.heroBody} canonical="https://www.brunoastro.cv" openGraph={{ url: "https://www.brunoastro.cv", title: `Bruno Ângelo — ${copy.title}`, description: copy.heroBody, images: [{ url: "/portofolio_cover.png", width: 487, height: 183, alt: "Bruno Ângelo portfolio", type: "image/png" }], siteName: "Bruno Ângelo Portfolio" }} twitter={{ handle: "@brunoastr0", site: "@brunoastr0", cardType: "summary_large_image" }} />
+      <NextSeo
+        title={copy.title}
+        description={copy.heroBody}
+        canonical={SITE_URL}
+        robotsProps={{ maxImagePreview: "large" }}
+        openGraph={{
+          url: SITE_URL,
+          title: `Bruno Ângelo — ${copy.title}`,
+          description: copy.heroBody,
+          locale: language === "pt" ? "pt_CV" : "en_US",
+          type: "website",
+          images: [{
+            url: absoluteUrl(`/social/home-${language}.png`),
+            width: SOCIAL_IMAGE_WIDTH,
+            height: SOCIAL_IMAGE_HEIGHT,
+            alt: `Bruno Ângelo — ${copy.title}`,
+            type: "image/png",
+          }],
+          siteName: SITE_NAME,
+        }}
+        twitter={{ handle: "@brunoastr0", site: "@brunoastr0", cardType: "summary_large_image" }}
+      />
       <Layout>
         <section className="flex flex-col justify-center py-20 md:py-32" aria-label={copy.intro}>
           <Reveal>

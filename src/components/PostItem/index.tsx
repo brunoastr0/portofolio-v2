@@ -2,13 +2,14 @@ import Link from "next/link";
 import type { PostMeta } from "@/lib/posts";
 import { formatPostDate } from "@/lib/format";
 import { useLanguage } from "@/components/LanguageProvider";
+import { postPath } from "@/lib/seo";
 
 const PostItem: React.FC<PostMeta> = ({ slug, title, date, description }) => {
   const { language } = useLanguage();
 
   return <li className="border-t border-line">
     <Link
-      href={`/blog/${slug}`}
+      href={postPath(slug, language)}
       className="group grid gap-2 py-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:grid-cols-8 sm:gap-8"
     >
       <p className="text-sm font-medium uppercase tracking-widest text-ink-faint sm:col-span-2 sm:mt-1">

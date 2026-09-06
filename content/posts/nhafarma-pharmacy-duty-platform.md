@@ -1,6 +1,6 @@
 ---
 title: "Nhafarma: finding the pharmacy on duty in Cabo Verde"
-date: "2026-08-20"
+date: "2025-08-20"
 description: "Pharmacies take turns covering the night shift. Nhafarma helps people find the one on duty without waiting for a radio announcement or searching through online news."
 tags: ["Case Study", "TypeScript", "Fastify", "Operations", "Prometheus", "Grafana"]
 ---

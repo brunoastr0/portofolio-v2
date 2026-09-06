@@ -1,75 +1,55 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-/* 
-body {
-    background-image: url("/bg.svg");
 
-} */
-
-span#dayOfTheWeek {
-    color: #009ACE;
-    overflow: hidden;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: .15em;
-    position: absolute;
-    display: inline-flex;
-    border-right: .15em solid white;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: typing 3.5s steps(40, end),
-        blink-caret .75s step-end infinite;
-
-
-}
-
-.active>span:nth-child(1) {
+::selection {
     background-color: #FFD700;
-    /* Gold */
-    width: 4rem;
-    /* Adjusts the indicator width */
-    transition: all 0.3s ease;
-    /* Smooth transition for hover effects */
+    color: #1C1917;
 }
 
-.active>span:nth-child(2) {
-    color: #FFD700;
-    /* Matches the active indicator color */
-    transition: color 0.3s ease;
-    /* Smooth transition for text color */
+/* Scroll-reveal: sections fade up once when entering the viewport */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-
-
-/*Animation*/
-
-/* Keyframes for the typing animation */
-@keyframes typing {
-    from {
-        width: 0;
-    }
-
-    /* Text starts off with zero width */
-    to {
-        width: 100%;
-    }
-
-    /* Text expands to full width */
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
 }
 
-/* Keyframes for the cursor blinking effect */
-@keyframes blink-caret {
-
-    from,
-    to {
-        border-color: transparent;
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
+}
 
-    /* Cursor appears invisible */
-    50% {
-        border-color: white;
-    }
+/* Obsidian Excalidraw exports inside article bodies */
+.prose img[src*=".excalidraw.svg"] {
+    width: 100%;
+    margin-block: 2.5rem 0.75rem;
+    border: 1px solid #E7E5E4;
+    border-radius: 1rem;
+    background: #FFFFFF;
+}
 
-    /* Cursor blinks with white color */
+.prose img[src*="/blog/nhafarma/grafana-dashboard.png"] {
+    width: min(1100px, calc(100vw - 3rem));
+    max-width: none;
+    margin-block: 2.5rem 0.75rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #292524;
+    border-radius: 1rem;
+}
+
+/* Two-line excerpt clamp (line-clamp is not core in Tailwind 3.2) */
+.clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

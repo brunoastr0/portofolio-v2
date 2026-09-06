@@ -1,10 +1,15 @@
-import Image from "next/image"; // Assuming you're using Next.js for optimized images.
+import Image from "next/image";
+import Link from "next/link";
+
 interface Project {
   title: string;
   description: string;
   imageSrc: string;
   imageAlt: string;
   link?: string;
+  featured?: boolean;
+  meta?: string[];
+  imageFit?: "cover" | "contain";
 }
 
 const ProjectItem: React.FC<Project> = ({
@@ -13,35 +18,69 @@ const ProjectItem: React.FC<Project> = ({
   imageSrc,
   imageAlt,
   link,
+  featured = false,
+  meta = [],
+  imageFit = "cover",
 }) => (
-  <li className="mb-12">
-    <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-      <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:shadow-[inset_0_0_1px_1px_rgba(255,255,255,0.2)] lg:group-hover:drop-shadow-lg"></div>
-
-      <div className="z-10 sm:order-2 sm:col-span-6">
-        <h3>
-          <a
-            href={`${link ? link : "#"}`}
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label={`Learn more about ${title}`}
-            className="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-white hover:text-xl focus-visible:text-white group/link text-base"
-          >
-            <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"></span>
-            <span>{title}</span>
-          </a>
-        </h3>
-        <p className="mt-2 text-sm leading-normal">{description}</p>
+  <li className={featured ? "md:col-span-2" : ""}>
+    <Link
+      href={link ?? "#"}
+      target={link?.startsWith("/") ? undefined : "_blank"}
+      rel={link?.startsWith("/") ? undefined : "noreferrer noopener"}
+      aria-label={`View project: ${title}`}
+      className={`group cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent ${
+        featured ? "block md:grid md:grid-cols-[1.15fr_1fr] md:gap-8" : "block"
+      }`}
+    >
+      <div
+        className={`relative overflow-hidden rounded-2xl border border-line ${
+          imageFit === "contain" ? "bg-white" : "bg-surface"
+        } ${
+          featured ? "aspect-[16/10] md:aspect-auto md:min-h-[25rem]" : "aspect-[16/10]"
+        }`}
+      >
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          fill
+          sizes={featured ? "(min-width: 768px) 72rem, 100vw" : "(min-width: 768px) 36rem, 100vw"}
+          className={`${imageFit === "contain" ? "object-contain p-10 sm:p-14" : "object-cover"} transition-transform duration-300 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100`}
+        />
       </div>
-
-      <Image
-        src={imageSrc}
-        width={200}
-        height={48}
-        className="rounded border-3 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1"
-        alt={imageAlt}
-      />
-    </div>
+      <div className={featured ? "md:flex md:flex-col md:justify-center" : ""}>
+        {meta.length > 0 && (
+          <ul className={`mt-4 flex flex-wrap gap-2 ${featured ? "md:mt-0" : ""}`} aria-label={`${title} details`}>
+            {meta.map((item) => (
+              <li
+                key={item}
+                className="rounded-full border border-line bg-surface px-3 py-1 text-xs font-medium text-ink-muted"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className="mt-4 flex items-baseline justify-between gap-4">
+          <h3 className={`font-display font-semibold tracking-tight transition-colors group-hover:text-accent ${featured ? "text-2xl md:text-4xl" : "text-xl md:text-2xl"}`}>
+            {title}
+          </h3>
+          <svg
+            className="h-5 w-5 shrink-0 text-ink-faint transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent motion-reduce:transition-none"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M7 17L17 7" />
+            <path d="M8 7h9v9" />
+          </svg>
+        </div>
+        <p className={`mt-2 text-ink-muted ${featured ? "md:text-lg" : "max-w-xl"}`}>{description}</p>
+      </div>
+    </Link>
   </li>
 );
 

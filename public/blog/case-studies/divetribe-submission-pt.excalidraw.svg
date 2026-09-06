@@ -1,0 +1,30 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1040" class="excalidraw-svg">
+  <!-- svg-source:excalidraw -->
+  <defs>
+    <style>.hand{font-family:"Comic Sans MS","Segoe Print",sans-serif;fill:#292524}.title{font-size:34px;font-weight:700}.sub{font-size:18px;fill:#78716c}.label{font-size:21px;font-weight:600;text-anchor:middle}.small{font-size:17px;font-weight:600}.box{stroke:#57534e;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.arrow{fill:none;stroke:#57534e;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}</style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#57534e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="1200" height="1040" fill="#fff"/>
+  <text class="hand title" x="40" y="55">A vida de uma submissão</text>
+  <text class="hand sub" x="41" y="86">Guardar primeiro. Decidir o passo seguinte. Entregar apenas quando a sequência termina.</text>
+  <g class="box">
+    <rect x="395" y="125" width="410" height="82" rx="18" fill="#eff6ff"/><rect x="395" y="252" width="410" height="82" rx="18" fill="#f5f3ff"/>
+    <rect x="395" y="379" width="410" height="82" rx="18" fill="#fff7ed"/><rect x="395" y="506" width="410" height="82" rx="18" fill="#f0fdf4"/>
+    <rect x="395" y="633" width="410" height="82" rx="18" fill="#fefce8"/>
+    <path d="M600 755L790 840L600 925L410 840Z" fill="#fef2f2"/>
+    <rect x="850" y="799" width="300" height="82" rx="18" fill="#ecfdf5"/><rect x="850" y="925" width="300" height="82" rx="18" fill="#eff6ff"/>
+  </g>
+  <g class="arrow" marker-end="url(#arrow)">
+    <path d="M600 207C596 221 604 235 600 249"/><path d="M600 334C604 349 596 364 600 376"/><path d="M600 461C596 476 604 491 600 503"/>
+    <path d="M600 588C604 603 596 618 600 630"/><path d="M600 715C596 730 603 742 600 752"/><path d="M790 840C810 837 828 843 847 840"/>
+    <path d="M1000 881C996 895 1004 909 1000 922"/><path d="M410 840C280 840 250 733 250 620C250 474 312 420 392 420"/>
+  </g>
+  <g class="hand label">
+    <text x="600" y="174">Participante abre a ligação de registo</text><text x="600" y="301">Dados pessoais — introduzidos uma vez</text>
+    <text x="600" y="428">Próximo formulário obrigatório</text><text x="600" y="555">Preencher e assinar</text><text x="600" y="682">A API guarda a submissão</text>
+    <text x="600" y="829"><tspan x="600">Todos os formulários</tspan><tspan x="600" dy="28">estão concluídos?</tspan></text>
+    <text x="1000" y="831"><tspan x="1000">Gerar PDFs a partir</tspan><tspan x="1000" dy="28">dos modelos oficiais</tspan></text>
+    <text x="1000" y="957"><tspan x="1000">Enviar ligações seguras</tspan><tspan x="1000" dy="28">e temporárias por email</tspan></text>
+  </g>
+  <text class="hand small" x="805" y="820" fill="#15803d">SIM</text><text class="hand small" x="265" y="815" fill="#b91c1c">NÃO — continuar</text>
+</svg>

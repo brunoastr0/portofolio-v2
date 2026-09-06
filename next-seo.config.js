@@ -44,15 +44,15 @@ const seoConfig = {
     additionalMetaTags: [
         {
             name: "theme-color",
-            content: "#000000",
+            content: "#FAFAF9",
         },
         {
             name: "msapplication-navbutton-color",
-            content: "#000000",
+            content: "#FAFAF9",
         },
         {
             name: "apple-mobile-web-app-status-bar-style",
-            content: "#000000",
+            content: "#FAFAF9",
         },
     ],
 };

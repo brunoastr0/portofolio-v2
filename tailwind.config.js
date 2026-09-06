@@ -1,19 +1,30 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require("tailwindcss/plugin");
-
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      backgroundImage: {
-        app: "url('/desktop.svg')",
+      colors: {
+        canvas: "#FAFAF9",
+        surface: "#FFFFFF",
+        ink: {
+          DEFAULT: "#1C1917",
+          muted: "#57534E",
+          faint: "#78716C",
+        },
+        line: "#E7E5E4",
+        accent: {
+          DEFAULT: "#B45309",
+          gold: "#FFD700",
+        },
       },
-      boxShadow: {
-        '3xl': '0 1px 50px -15px rgba(255, 255, 255, 1)',
-      }
+      fontFamily: {
+        display: ["var(--font-archivo)", "system-ui", "sans-serif"],
+        sans: ["var(--font-grotesk)", "system-ui", "sans-serif"],
+      },
+      maxWidth: {
+        site: "72rem",
+      },
     },
-
   },
-  plugins: [],
-}
+  plugins: [require("@tailwindcss/typography")],
+};

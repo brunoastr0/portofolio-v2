@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-  experimental: {
-    appDir: false,
-  },
-}
+  distDir: process.env.NEXT_DIST_DIR || ".next",
+  outputFileTracingRoot: __dirname,
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

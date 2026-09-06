@@ -1,83 +1,111 @@
 import Head from "next/head";
 import Image from "next/image";
-
-import { Poppins } from "next/font/google";
+import Link from "next/link";
+import { Archivo, Space_Grotesk } from "next/font/google";
 import { ReactNode } from "react";
-import RadialPointer from "../RadialPointer";
-import { Tab } from "../Tab";
+import { useLanguage } from "../LanguageProvider";
 import { SocialsLinks } from "../SocialsLinks";
-import { DayOfTheWeek } from "../DayOfTheWeek";
-import Logo from "../Logo";
 
-const poppins = Poppins({
+const archivo = Archivo({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-poppins",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-archivo",
+  weight: ["400", "500", "600", "700"],
 });
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-grotesk",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
 interface LayoutProps {
   children: ReactNode;
 }
 
 export function Layout({ children }: LayoutProps): JSX.Element {
+  const { language, setLanguage } = useLanguage();
+  const copy = language === "pt"
+    ? {
+        work: "Trabalhos",
+        services: "Serviços",
+        about: "Sobre",
+        contact: "Contacto",
+        blog: "Artigos",
+        resume: "Currículo",
+        contactTitle: "Tem um projeto em mente? Vamos construí-lo juntos.",
+        languageLabel: "Mudar para inglês",
+      }
+    : {
+        work: "Work",
+        services: "Services",
+        about: "About",
+        contact: "Contact",
+        blog: "Blogs",
+        resume: "Résumé",
+        contactTitle: "Have a project in mind? Let’s build it together.",
+        languageLabel: "Mudar para português",
+      };
+  const navLinks = [
+    { href: "/#work", label: copy.work },
+    { href: "/services", label: copy.services },
+    { href: "/#about", label: copy.about },
+    { href: "/blog", label: copy.blog },
+  ];
+
   return (
-    <div className={`relative ${poppins.variable}`}>
+    <div className={`${archivo.variable} ${spaceGrotesk.variable} font-sans min-h-screen flex flex-col`}>
       <Head>
-      <link rel="icon" href="/favicon.ico" sizes="any" />
-        <title>Bruno Angelo</title>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
-      <RadialPointer />
-      <DayOfTheWeek />
 
-      <div
-        className={`mx-auto min-h-screen  max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0 `}
-      >
-        <Logo />
-        <div className="lg:flex lg:justify-between lg:gap-4 ">
-          <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
-            <div className="flex flex-col md:flex-row justify-start md:w-full items-center   ">
-              <Image
-                src={"/bruno.jpg"}
-                width={150}
-                height={150}
-                alt={"photo1"}
-                className="rounded-full shadow-3xl border-[2px] border-[#FFD700]"
-              />
-              <div className="font-semibold text-center p-2 m-2 ">
-                <h1 className="text-2xl md:text-4xl text-white font-bold tracking-tight  ">
-                  Bruno Ângelo
-                </h1>
-                <h2 className="text-white/[.5] text-xl md:text-2xl">
-                  Software developer
-                </h2>
-              </div>
-            </div>
-            <div className="">
-              <Tab />
-            </div>
-            <div className="md:block flex justify-center m-2">
-              <a
-                className="bg-yellow-500 hover:bg-yellow-400 w-fit p-4 rounded text-[#252525] font-bold "
-                href="/pdf/CV_BrunoAngelo.pdf"
-                target={"_blank"}
-                download={"bruno_angelo_cv"}
-              >
-                Curicullum Vitae
-              </a>
-            </div>
+      <header className="sticky top-0 z-40 border-b border-line bg-canvas/80 backdrop-blur-md">
+        <nav className="mx-auto flex max-w-site items-center justify-between px-6 py-4 md:px-10" aria-label="Main navigation">
+          <Link href="/" className="flex items-center gap-3" aria-label="Home">
+            <Image src="/astro_colored_1.svg" width={32} height={32} alt="Astro logo" />
+            <span className="font-display font-semibold tracking-tight hidden sm:block">Bruno Ângelo</span>
+          </Link>
 
-            <ul
-              className="ml-0 mt-8 flex items-center"
-              aria-label="Social media"
+          <div className="flex items-center gap-1 sm:gap-2">
+            <div className="hidden items-center gap-1 sm:flex">
+              {navLinks.map(({ href, label }) => (
+                <Link key={href} href={href} className="rounded-full px-3 py-2 text-sm font-medium text-ink-muted transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent">
+                  {label}
+                </Link>
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={() => setLanguage(language === "en" ? "pt" : "en")}
+              aria-label={copy.languageLabel}
+              className="rounded-full border border-line bg-surface px-3 py-2 text-xs font-semibold uppercase tracking-wider text-ink-muted transition-colors hover:border-ink hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
             >
-              <SocialsLinks />
-            </ul>
-          </header>
-          <main id="content" className=" pt-24 lg:w-1/2 lg:py-24 ">
-            {children}
-          </main>
+              {language === "en" ? "PT" : "EN"}
+            </button>
+            <a href="/pdf/CV_BrunoAngelo.pdf" target="_blank" download="bruno_angelo_cv" className="ml-2 hidden rounded-full bg-ink px-4 py-2 text-sm font-medium text-canvas transition-colors hover:bg-ink-muted md:block">
+              {copy.resume}
+            </a>
+          </div>
+        </nav>
+      </header>
+
+      <main id="top" className="mx-auto w-full max-w-site flex-1 px-6 md:px-10">{children}</main>
+
+      <footer id="contact" className="border-t border-line">
+        <div className="mx-auto max-w-site px-6 py-20 md:px-10 md:py-28">
+          <p className="text-sm font-medium uppercase tracking-widest text-accent">{copy.contact}</p>
+          <h2 className="mt-4 max-w-2xl font-display text-4xl font-semibold tracking-tight md:text-6xl">{copy.contactTitle}</h2>
+          <a href="mailto:brunoangelo.dev@gmail.com" className="mt-8 inline-block text-lg font-medium text-ink underline decoration-accent-gold decoration-2 underline-offset-8 transition-colors hover:text-accent md:text-2xl">
+            brunoangelo.dev@gmail.com
+          </a>
+
+          <div className="mt-16 flex flex-col gap-6 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
+            <p className="text-sm text-ink-faint">© {new Date().getFullYear()} Bruno Ângelo — Astro</p>
+            <ul className="flex items-center gap-1" aria-label="Social media"><SocialsLinks /></ul>
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }

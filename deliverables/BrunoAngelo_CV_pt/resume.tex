@@ -1,0 +1,37 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[10pt, a4paper]{awesome-cv}
+
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.7cm, footskip=.5cm}
+\fontdir[fonts/]
+\colorlet{awesome}{awesome-red}
+\setbool{acvSectionColorHighlight}{true}
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\name{Bruno}{Ângelo}
+\position{Engenheiro Informático}
+\address{Mindelo, Cabo Verde}
+
+\mobile{(+238) 978 03 42}
+\email{brunoangelo.dev@gmail.com}
+\homepage{www.brunoastro.cv}
+\github{brunoastr0}
+\linkedin{brunoastr0}
+
+\begin{document}
+
+\makecvheader[C]
+
+\makecvfooter
+  {}
+  {Bruno Ângelo~~~·~~~Currículo}
+  {\thepage}
+
+\input{resume/summary.tex}
+\input{resume/experience.tex}
+\input{resume/projects.tex}
+\input{resume/skills.tex}
+\input{resume/education.tex}
+
+\end{document}

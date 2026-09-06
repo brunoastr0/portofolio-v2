@@ -1,0 +1,35 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 430" class="excalidraw-svg">
+  <!-- svg-source:excalidraw -->
+  <defs>
+    <style>
+      .hand{font-family:"Comic Sans MS","Segoe Print",sans-serif;fill:#292524}.title{font-size:34px;font-weight:700}.sub{font-size:18px;fill:#78716c}.label{font-size:20px;font-weight:600;text-anchor:middle}.num{font-size:16px;font-weight:700;text-anchor:middle;fill:#1d4ed8}.box{stroke:#57534e;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.arrow{fill:none;stroke:#57534e;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#57534e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="1400" height="430" fill="#fff"/>
+  <text class="hand title" x="35" y="55">Do horário a uma pesquisa imediata</text>
+  <text class="hand sub" x="36" y="86">Um documento mensal torna-se informação estruturada e pesquisável.</text>
+  <g class="box">
+    <rect x="35" y="155" width="165" height="115" rx="17" fill="#eff6ff"/><rect x="228" y="155" width="165" height="115" rx="17" fill="#f5f3ff"/>
+    <rect x="421" y="155" width="165" height="115" rx="17" fill="#fff7ed"/><rect x="614" y="155" width="165" height="115" rx="17" fill="#f0fdf4"/>
+    <rect x="807" y="155" width="165" height="115" rx="17" fill="#fefce8"/><rect x="1000" y="155" width="165" height="115" rx="17" fill="#f0f9ff"/>
+    <rect x="1193" y="155" width="165" height="115" rx="17" fill="#ecfdf5"/>
+  </g>
+  <g class="arrow" marker-end="url(#arrow)">
+    <path d="M200 212C210 210 216 214 225 212"/><path d="M393 212C403 214 410 210 418 212"/><path d="M586 212C597 210 603 214 611 212"/>
+    <path d="M779 212C789 214 796 210 804 212"/><path d="M972 212C982 210 989 214 997 212"/><path d="M1165 212C1175 214 1182 210 1190 212"/>
+  </g>
+  <g class="hand label">
+    <text x="117" y="203"><tspan x="117">Email com</tspan><tspan x="117" dy="28">horário</tspan></text>
+    <text x="310" y="203"><tspan x="310">Worker</tspan><tspan x="310" dy="28">IMAP</tspan></text>
+    <text x="503" y="203"><tspan x="503">PDF</tspan><tspan x="503" dy="28">validado</tspan></text>
+    <text x="696" y="203"><tspan x="696">Parser</tspan><tspan x="696" dy="28">Python</tspan></text>
+    <text x="889" y="203"><tspan x="889">Registos</tspan><tspan x="889" dy="28">normalizados</tspan></text>
+    <text x="1082" y="218">PostgreSQL</text><text x="1275" y="203"><tspan x="1275">API</tspan><tspan x="1275" dy="28">Fastify</tspan></text>
+  </g>
+  <g class="hand num">
+    <text x="117" y="310">01</text><text x="310" y="310">02</text><text x="503" y="310">03</text><text x="696" y="310">04</text><text x="889" y="310">05</text><text x="1082" y="310">06</text><text x="1275" y="310">07</text>
+  </g>
+  <path d="M36 352C314 347 540 356 788 351C1017 347 1197 354 1358 350" fill="none" stroke="#d6d3d1" stroke-width="2" stroke-linecap="round"/>
+  <text class="hand sub" x="700" y="390" text-anchor="middle">Worker independente · importação repetível · API permanece disponível</text>
+</svg>

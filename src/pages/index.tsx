@@ -26,7 +26,7 @@ const postImages: Record<string, string> = {
   "nhafarma-pharmacy-duty-platform": "/nhafarma-logo.svg",
   "divetribe-forms-platform": "/divetribe-logo.jpg",
   "school-management-api": "/database.png",
-  "teaching-an-ai-to-drive": "/neural.png",
+  "teaching-an-ai-to-drive": "/blog/teaching-ai-car/signal-flow.png",
 };
 
 const postTranslations: Record<string, { title: string; description: string }> = {

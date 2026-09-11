@@ -64,7 +64,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
         deployment: "implementação",
         heroBody: "Engenheiro informático com foco em backend, desenvolvimento full-stack e redes, e com sensibilidade para o design. Crio plataformas usadas por pessoas reais e mantenho o software e a infraestrutura saudáveis em produção.",
         viewWork: "Ver trabalhos",
-        download: "Descarregar CV",
+        contact: "Contacto",
         work: "Trabalhos selecionados",
         services: "Serviços",
         servicesTitle: "Do problema ao produto — e à infraestrutura que o suporta.",
@@ -83,7 +83,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
         deployment: "deployment",
         heroBody: "Computer engineer focused on backend, full-stack development, and networks, with a designer’s eye. I ship web platforms used by real people, then keep their software and infrastructure healthy in production.",
         viewWork: "View my work",
-        download: "Download CV",
+        contact: "Contact",
         work: "Selected Work",
         services: "Services",
         servicesTitle: "From the problem to the product — and the infrastructure behind it.",
@@ -145,7 +145,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
             <p className="mt-8 max-w-xl text-lg text-ink-muted">{copy.heroBody}</p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <a href="#work" className="rounded-full bg-ink px-6 py-3 font-medium text-canvas transition-colors hover:bg-ink-muted">{copy.viewWork}</a>
-              <a href="/pdf/CV_BrunoAngelo.pdf" target="_blank" download="bruno_angelo_cv" className="rounded-full border border-line bg-surface px-6 py-3 font-medium text-ink transition-colors hover:border-ink">{copy.download}</a>
+              <a href="#contact" className="rounded-full border border-line bg-surface px-6 py-3 font-medium text-ink transition-colors hover:border-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">{copy.contact}</a>
             </div>
           </Reveal>
         </section>

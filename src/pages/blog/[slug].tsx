@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArticleJsonLd, NextSeo } from "next-seo";
 import { Layout } from "@/components/Layout";
 import { ShareButtons } from "@/components/ShareButtons";
+import { BlogDetails } from "@/components/BlogDetails";
 import Tag from "@/components/Tag";
 import { getAllPosts, getPost } from "@/lib/posts";
 import type { Post, PostMeta } from "@/lib/posts";
@@ -35,6 +36,12 @@ export const PostPage: NextPage<PostPageProps> = ({ post, postPt, related, relat
   const currentRelated = language === "pt" ? relatedPt : related;
   const currentUrl = postUrl(currentPost.slug, language);
   const socialImage = absoluteUrl(currentPost.image);
+  const articleBody = (
+    <div
+      className="prose prose-stone mx-auto mt-12 max-w-3xl prose-headings:font-display prose-headings:tracking-tight prose-a:text-accent prose-a:decoration-accent-gold prose-a:decoration-2 prose-a:underline-offset-4 prose-blockquote:border-l-accent-gold prose-blockquote:font-display prose-blockquote:text-xl prose-blockquote:not-italic prose-blockquote:font-medium"
+      dangerouslySetInnerHTML={{ __html: currentPost.contentHtml }}
+    />
+  );
   const copy = language === "pt"
     ? {
         allPosts: "Todos os artigos",
@@ -147,10 +154,10 @@ export const PostPage: NextPage<PostPageProps> = ({ post, postPt, related, relat
             </p>
           </header>
 
-          <div
-            className="prose prose-stone mx-auto mt-12 max-w-3xl prose-headings:font-display prose-headings:tracking-tight prose-a:text-accent prose-a:decoration-accent-gold prose-a:decoration-2 prose-a:underline-offset-4 prose-blockquote:border-l-accent-gold prose-blockquote:font-display prose-blockquote:text-xl prose-blockquote:not-italic prose-blockquote:font-medium"
-            dangerouslySetInnerHTML={{ __html: currentPost.contentHtml }}
-          />
+          <div className="blog-story">
+            <BlogDetails post={currentPost} language={language} />
+            {articleBody}
+          </div>
 
           <ShareButtons
             title={currentPost.title}

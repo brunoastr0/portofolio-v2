@@ -46,6 +46,24 @@
     border-radius: 1rem;
 }
 
+.blog-story { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 4rem; margin-top: 4rem; align-items: start; }
+.blog-details { border-top: 1px solid #E7E5E4; padding-top: 1.25rem; font-size: 0.875rem; }
+.blog-details dl { display: grid; gap: 1.5rem; }
+.blog-details dt { font-size: 0.75rem; color: #57534E; margin-bottom: 0.35rem; }
+.blog-details dd { line-height: 1.7; overflow-wrap: anywhere; }
+.blog-story > .prose { min-width: 0; width: 100%; margin-top: 0; }
+.blog-story > .prose > :first-child { margin-top: 0; }
+/* Wide dashboard images must stay within the article column beside the panel. */
+.blog-story .prose img[src*="/blog/nhafarma/grafana-dashboard.png"] { width: 100%; max-width: 100%; margin-left: 0; transform: none; }
+@media (max-width: 1023px) {
+    .blog-story { grid-template-columns: 160px minmax(0, 1fr); gap: 2rem; }
+}
+@media (max-width: 639px) {
+    .blog-story { grid-template-columns: 1fr; gap: 2.5rem; margin-top: 2.5rem; }
+    .blog-details { grid-row: 1; }
+    .blog-details dl { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+}
+
 /* Two-line excerpt clamp (line-clamp is not core in Tailwind 3.2) */
 .clamp-2 {
     display: -webkit-box;

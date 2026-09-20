@@ -37,6 +37,7 @@ export function Layout({ children }: LayoutProps): JSX.Element {
         blog: "Artigos",
         resume: "Currículo",
         contactTitle: "Tem um projeto em mente? Vamos construí-lo juntos.",
+        whatsapp: "Contactar via WhatsApp",
         languageLabel: "Mudar para inglês",
       }
     : {
@@ -47,6 +48,7 @@ export function Layout({ children }: LayoutProps): JSX.Element {
         blog: "Blogs",
         resume: "Résumé",
         contactTitle: "Have a project in mind? Let’s build it together.",
+        whatsapp: "Contact on WhatsApp",
         languageLabel: "Mudar para português",
       };
   const navLinks = [
@@ -112,6 +114,16 @@ export function Layout({ children }: LayoutProps): JSX.Element {
           <a href="mailto:brunoangelo.dev@gmail.com" className="mt-8 inline-block text-lg font-medium text-ink underline decoration-accent-gold decoration-2 underline-offset-8 transition-colors hover:text-accent md:text-2xl">
             brunoangelo.dev@gmail.com
           </a>
+          <div className="mt-6">
+            <a
+              href="https://wa.me/2389789342"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-ink px-6 py-3 text-center text-sm font-medium text-canvas transition-colors hover:bg-ink-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            >
+              {copy.whatsapp}
+            </a>
+          </div>
 
           <div className="mt-16 flex flex-col gap-6 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
             <p className="text-sm text-ink-faint">© {new Date().getFullYear()} Bruno Ângelo — Astro</p>

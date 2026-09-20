@@ -23,6 +23,8 @@ export interface PostMeta {
 
 export interface Post extends PostMeta {
   contentHtml: string;
+  client: string | null;
+  technologies: string[];
 }
 
 export function getAllPosts(language: PostLanguage = "en"): PostMeta[] {
@@ -72,5 +74,9 @@ export async function getPost(slug: string, language: PostLanguage = "en"): Prom
     image: data.image ?? `/social/${slug}-${language}.png`,
     imageAlt: data.imageAlt ?? data.title ?? slug,
     contentHtml,
+    client: typeof data.client === "string" ? data.client : null,
+    technologies: Array.isArray(data.technologies)
+      ? data.technologies.filter((value: unknown): value is string => typeof value === "string")
+      : [],
   };
 }

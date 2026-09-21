@@ -11,6 +11,8 @@ People rely on radio announcements at particular times and online news to find t
 
 Nhafarma gives people a direct way to look up the pharmacy on duty by island and city. The question behind the project is simple: which pharmacy can I go to tonight?
 
+Nhafarma is a project created by the frontend engineer behind [kafonso.cv](https://kafonso.cv). He invited me to join the project and contribute to the backend. This article focuses on that backend work.
+
 The web app is available at [nhafarma.cv](https://nhafarma.cv).
 
 ## From announcements to a lookup

@@ -11,6 +11,8 @@ As pessoas dependem de anúncios pontuais na rádio e de notícias online para c
 
 A Nhafarma oferece uma forma direta de pesquisar a farmácia de serviço por ilha e cidade. A pergunta por trás do projeto é simples: a que farmácia posso ir esta noite?
 
+A Nhafarma é um projeto criado pelo engenheiro de frontend por trás de [kafonso.cv](https://kafonso.cv). Foi ele quem me convidou a fazer parte do projeto e a contribuir para o backend. Este artigo centra-se nesse trabalho de backend.
+
 A aplicação web está disponível em [nhafarma.cv](https://nhafarma.cv).
 
 ## Dos anúncios para uma pesquisa direta

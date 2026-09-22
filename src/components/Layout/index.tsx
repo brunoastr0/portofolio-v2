@@ -116,7 +116,7 @@ export function Layout({ children }: LayoutProps): JSX.Element {
           </a>
           <div className="mt-6">
             <a
-              href="https://wa.me/2389789342"
+              href="https://wa.me/2389780342"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-11 items-center justify-center rounded-full bg-ink px-6 py-3 text-center text-sm font-medium text-canvas transition-colors hover:bg-ink-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
